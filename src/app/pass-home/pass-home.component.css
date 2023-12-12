@@ -1,0 +1,8 @@
+/* *{
+    background-color: hsl(180, 52%, 96%);
+} */
+
+.content{
+    background-color: hsl(180, 52%, 96%) ;
+    height: 100vh;
+}
