@@ -1,53 +1,54 @@
-<div class="content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content">
+        <div class="relative">
+          <img src="../../assets/images/bg-header-mobile.svg" class="w-full h-36 lg:invisible" />
+          <img src="../../assets/images/bg-header-desktop.svg" class="w-full -mt-40 h-44 invisible lg:visible"/>
+          <div class="search-container w-[88%] h-16 rounded-md bg-white top-28 absolute left-[6%]">
+            <form class="ml-[2%]" (submit)="filteredRoles(filter.value); $event.preventDefault()">
+                <input 
+                #filter
+                  type="text" 
+                  [formControl]="searchControl"
+                  class="outline-none border-b h-8 border-dark-cyan w-[85%] caret-text-cyan text-text-cyan font-semibold lg:mt-4" 
+                />
+                <button type="button" class="text-dark-cyan font-bold ml-2 hover:text-text-cyan">search</button>
+              </form>
+              
+              
+            
+          </div>
+        </div>
+      
+        <!-- featured jobs -->
+      
+        <div class="featured-cont mt-28" *ngIf="!searchFilter">
+          <app-featured-jobs
+            *ngFor="let featuredJob of featuredJobs"
+            [jobCard]="featuredJob"
+          />
+        </div>
+      
+        <!-- non-featured jobs -->
+      
+        <div class="non-featured-jobs" *ngIf="!searchFilter">
+          <app-non-featured-jobs *ngFor="let nonFeaturedJob of nonFeaturedJobs" [jobNonFeaturedCard]="nonFeaturedJob" />
+        </div>
+      </div>
+  
+      <!-- all jobs -->
 
-    <div class="banner">
-        <img src="../../assets/images/bg-header-mobile.svg" class="w-full h-36"/>
-    </div>
+      <div class="all-jobs mt-28" *ngIf="searchFilter">
+        <app-all-jobs *ngFor="let allJob of filteredJobs" [allJob]="allJob" [currentFilter]="currentFilter"/>
+      </div>
+       
+</body>
+</html>
 
 
-    <!-- featured jobs -->
-
-    <div class="featured-cont mt-20"   >
-     
-
-
-
-     <!-- non-featured jobs -->
-
-     <div class="non-featured-jobs" >
-
-        <div class="job-card  m-9 p-6 relative bg-white  rounded-lg shadow-xl">
-            <img src="../../assets/images/photosnap.svg" class="absolute -top-8 w-16">
-            <div class="flex  mt-4 gap-4 mb-5">
-                <p class="text-md  font-bold text-text-cyan">Photosnap</p>
-                <p class="p-1 uppercase flex justify-center border text-xs font-bold  rounded-full w-14 text-white bg-text-cyan">New!</p>
-               
-            </div>
-           <p class="mb-5 font-bold">Senior Frontend Developer</p>
-    
-           <div class="tags divide-y divide-y-slate-500">
-            <ul class="flex gap-6 text-sm list-disc mb-4 font-semibold text-gray-400">
-                <li class="list-none">1d ago</li>
-                <li>Full-time</li>
-                <li>USA only</li>
-               </ul>
-    
-                <ul class="grid grid-cols-3 pt-4">
-                    <li class="p-1 bg-filter-cyan font-bold text-text-cyan mb-4  w-20 rounded-md">Frontend</li>
-                    <li class="p-1 bg-filter-cyan font-bold text-text-cyan mb-4 flex justify-center  w-20 rounded-md">Senior</li>
-                    <li class="p-1 bg-filter-cyan font-bold text-text-cyan mb-4 flex justify-center  w-16 rounded-md">HTML</li>
-                    <li class="p-1 bg-filter-cyan font-bold text-text-cyan  w-12 flex justify-center rounded-md">CSS</li>
-                    <li class="p-1 bg-filter-cyan font-bold text-text-cyan  w-24 flex justify-center rounded-md">Javascript</li>
-                   
-                </ul>
-           </div>
-         </div>
-
-     </div>
-
-     
-
-
-    </div>
-    
-</div>

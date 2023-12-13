@@ -1,26 +1,49 @@
-<div class="job-card  border-l-[6px] border-l-text-cyan mb-12  m-9 p-6 relative bg-white  rounded-lg shadow-xl">
-    <img src="../../assets/images/photosnap.svg" class="absolute -top-8 w-16">
-    <div class="flex  mt-4 gap-4 mb-5">
-        <p class="text-md  font-bold text-text-cyan">Photosnap</p>
-        <p class="p-1 uppercase flex justify-center border text-xs font-bold  rounded-full w-14 text-white bg-text-cyan">New!</p>
-        <p class="p-1 uppercase flex justify-center border text-xs font-bold  rounded-full w-20 text-white bg-gray-700" >Featured</p>
+<div
+  class="job-card border-l-[6px] lg:flex border-l-text-cyan mb-12 m-9 p-6 relative bg-white rounded-lg shadow-xl"
+>
+  <img [src]="jobCard.logo" class="absolute -top-8 w-16 h-16" />
+
+  <div class="info-card">
+    <div class="flex mt-4 gap-4 lg:mb-1 mb-3">
+      <p class="text-md font-bold text-text-cyan">{{ jobCard.company }}</p>
+      <p
+        class="p-1 uppercase flex justify-center border text-xs font-bold rounded-full w-14 text-white bg-text-cyan"
+        *ngIf="jobCard.new"
+      >
+        New!
+      </p>
+      <p
+        class="p-1 uppercase flex justify-center border text-xs font-bold rounded-full w-20 text-white bg-gray-700"
+        *ngIf="jobCard.featured"
+      >
+        Featured
+      </p>
     </div>
-   <p class="mb-5 font-bold">Senior Frontend Developer</p>
 
-   <div class="tags divide-y divide-y-slate-500">
-    <ul class="flex gap-6 text-sm list-disc mb-4 font-semibold text-gray-400">
-        <li class="list-none">1d ago</li>
-        <li>Full-time</li>
-        <li>USA only</li>
-       </ul>
+    <p class="lg:mb-1 font-bold">{{ jobCard.position }}</p>
 
-        <ul class="grid grid-cols-3 pt-4">
-            <li class="p-1 bg-filter-cyan font-bold text-text-cyan mb-4  w-20 rounded-md">Frontend</li>
-            <li class="p-1 bg-filter-cyan font-bold text-text-cyan mb-4 flex justify-center  w-20 rounded-md">Senior</li>
-            <li class="p-1 bg-filter-cyan font-bold text-text-cyan mb-4 flex justify-center  w-16 rounded-md">HTML</li>
-            <li class="p-1 bg-filter-cyan font-bold text-text-cyan  w-12 flex justify-center rounded-md">CSS</li>
-            <li class="p-1 bg-filter-cyan font-bold text-text-cyan  w-24 flex justify-center rounded-md">Javascript</li>
-           
-        </ul>
-   </div>
- </div>
+    <ul class="flex gap-6 text-sm list-disc mb-4 font-semibold text-gray-400 invisible lg:visible -mt-6 lg:mt-0">
+      <li class="list-none">{{ jobCard.postedAt }}</li>
+      <li>{{ jobCard.contract }}</li>
+      <li>{{ jobCard.location }}</li>
+    </ul>
+
+  </div>
+
+
+  <div class="tags lg:divide-y-0 divide-y divide-y-slate-500 lg:ml-auto">
+    <ul class="flex gap-6 text-sm list-disc mb-4 font-semibold text-gray-400 visible lg:invisible">
+      <li class="list-none">{{ jobCard.postedAt }}</li>
+      <li>{{ jobCard.contract }}</li>
+      <li>{{ jobCard.location }}</li>
+    </ul>
+
+    <ul class="lg:flex lg:gap-5 grid grid-cols-3 pt-4">
+      <li class="p-1 bg-filter-cyan font-bold hover:text-white hover:bg-text-cyan cursor-pointer text-text-cyan mb-4 w-20 rounded-md" >{{ jobCard.role }}</li>
+      <li class="p-1 bg-filter-cyan font-bold hover:text-white hover:bg-text-cyan cursor-pointer text-text-cyan mb-4 flex justify-center w-20 rounded-md" > {{ jobCard.level }}</li>
+      <li class="p-1 bg-filter-cyan font-bold hover:text-white hover:bg-text-cyan cursor-pointer text-text-cyan mb-4 flex justify-center w-24 rounded-md"
+      *ngFor="let language of jobCard?.languages" >{{language}}</li>
+    
+    </ul>
+  </div>
+</div>

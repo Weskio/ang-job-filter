@@ -1,7 +1,7 @@
 import { ArrayType } from "@angular/compiler";
 
 export interface DataInterface {
-    "id": number,
+    "id"?: number,
     "company": string,
     "logo": string,
     "new": boolean,
@@ -12,6 +12,5 @@ export interface DataInterface {
     "postedAt": string,
     "contract": string,
     "location": string,
-    "languages": ArrayType,
-    "tools": ArrayType
+    "languages"?: string[]
 }

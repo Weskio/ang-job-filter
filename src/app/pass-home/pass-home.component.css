@@ -2,7 +2,7 @@
     background-color: hsl(180, 52%, 96%);
 } */
 
-.content{
+body{
     background-color: hsl(180, 52%, 96%) ;
-    height: 100vh;
+    height: full;
 }

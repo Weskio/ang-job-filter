@@ -1,0 +1,61 @@
+<div
+  class="job-card border-l-[6px] lg:flex border-l-text-cyan mb-12 m-9 p-6 relative bg-white rounded-lg shadow-xl"
+>
+  <img [src]="allJob.logo" class="absolute -top-8 w-16 h-16" />
+
+  <div class="info-card">
+    <div class="flex mt-4 gap-4 lg:mb-1 mb-3">
+      <p class="text-md font-bold text-text-cyan">{{ allJob.company }}</p>
+      <p
+        class="p-1 uppercase flex justify-center border text-xs font-bold rounded-full w-14 text-white bg-text-cyan"
+        *ngIf="allJob.new"
+      >
+        New!
+      </p>
+      <p
+        class="p-1 uppercase flex justify-center border text-xs font-bold rounded-full w-20 text-white bg-gray-700"
+        *ngIf="allJob.featured"
+      >
+        Featured
+      </p>
+    </div>
+
+    <p class="lg:mb-1 font-bold">{{ allJob.position }}</p>
+
+    <ul class="flex gap-6 text-sm list-disc mb-4 font-semibold text-gray-400 invisible lg:visible -mt-6 lg:mt-0">
+      <li class="list-none">{{ allJob.postedAt }}</li>
+      <li>{{ allJob.contract }}</li>
+      <li>{{ allJob.location }}</li>
+    </ul>
+
+  </div>
+
+
+  <div class="tags lg:divide-y-0 divide-y divide-y-slate-500 lg:ml-auto">
+    <ul class="flex gap-6 text-sm list-disc mb-4 font-semibold text-gray-400 visible lg:invisible">
+      <li class="list-none">{{ allJob.postedAt }}</li>
+      <li>{{ allJob.contract }}</li>
+      <li>{{ allJob.location }}</li>
+    </ul>
+
+    <ul class="lg:flex lg:gap-5 grid grid-cols-3 pt-4">
+        <li 
+        [ngClass]="{
+          'bg-text-cyan text-emerald-800 shadow-xl ': role.toLowerCase() !== currentFilter.toLowerCase(),
+          'bg-white': role.toLowerCase() === currentFilter.toLowerCase()
+        }"
+        class="p-1 font-bold text-text-cyan hover:text-white hover:bg-text-cyan cursor-pointer mb-4 w-20 rounded-md"
+        >
+        {{ allJob.role }}
+        </li>
+      <li class="p-1 bg-filter-cyan font-bold hover:text-white hover:bg-text-cyan cursor-pointer text-text-cyan mb-4 flex justify-center w-20 rounded-md" > {{ allJob.level }}</li>
+      <li class="p-1 bg-filter-cyan font-bold hover:text-white hover:bg-text-cyan cursor-pointer text-text-cyan mb-4 flex justify-center w-24 rounded-md"
+      *ngFor="let language of allJob?.languages" >{{language}}</li>
+    
+    </ul>
+  </div>
+</div>
+
+
+
+<!--  -->

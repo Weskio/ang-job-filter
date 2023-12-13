@@ -12,11 +12,5 @@ import { JobsService } from './jobs.service';
 })
 export class AppComponent {
    
-  jobData = inject(JobsService)
-
-  jobCards =this.jobData.getJobData;
-
-  featuredJobCards = this.jobData.getFeaturedJobData
-
 
 }

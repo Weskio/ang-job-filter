@@ -1,1 +1,49 @@
-<p>non-featured-jobs works!</p>
+<div
+  class="job-card  lg:flex  mb-12 m-9 p-6 relative bg-white rounded-lg shadow-xl"
+>
+  <img [src]="jobNonFeaturedCard.logo" class="absolute -top-8 w-16 h-16" />
+
+  <div class="info-card">
+    <div class="flex mt-4 gap-4 lg:mb-1 mb-3">
+      <p class="text-md font-bold text-text-cyan">{{ jobNonFeaturedCard.company }}</p>
+      <p
+        class="p-1 uppercase flex justify-center border text-xs font-bold rounded-full w-14 text-white bg-text-cyan"
+        *ngIf="jobNonFeaturedCard.new"
+      >
+        New!
+      </p>
+      <p
+        class="p-1 uppercase flex justify-center border text-xs font-bold rounded-full w-20 text-white bg-gray-700"
+        *ngIf="jobNonFeaturedCard.featured"
+      >
+        Featured
+      </p>
+    </div>
+
+    <p class="lg:mb-1 font-bold">{{ jobNonFeaturedCard.position }}</p>
+
+    <ul class="flex gap-6 text-sm list-disc mb-4 font-semibold text-gray-400 invisible lg:visible -mt-6 lg:mt-0">
+      <li class="list-none">{{ jobNonFeaturedCard.postedAt }}</li>
+      <li>{{ jobNonFeaturedCard.contract }}</li>
+      <li>{{ jobNonFeaturedCard.location }}</li>
+    </ul>
+
+  </div>
+
+
+  <div class="tags lg:divide-y-0 divide-y divide-y-slate-500 lg:ml-auto">
+    <ul class="flex gap-6 text-sm list-disc mb-4 font-semibold text-gray-400 visible lg:invisible">
+      <li class="list-none">{{ jobNonFeaturedCard.postedAt }}</li>
+      <li>{{ jobNonFeaturedCard.contract }}</li>
+      <li>{{ jobNonFeaturedCard.location }}</li>
+    </ul>
+
+    <ul class="lg:flex lg:gap-5 grid grid-cols-3 pt-4">
+      <li class="p-1 bg-filter-cyan font-bold hover:text-white hover:bg-text-cyan cursor-pointer text-text-cyan mb-4 w-20 rounded-md" >{{ jobNonFeaturedCard.role }}</li>
+      <li class="p-1 bg-filter-cyan font-bold hover:text-white hover:bg-text-cyan cursor-pointer text-text-cyan mb-4 flex justify-center w-20 rounded-md" > {{ jobNonFeaturedCard.level }}</li>
+      <li class="p-1 bg-filter-cyan font-bold hover:text-white hover:bg-text-cyan cursor-pointer text-text-cyan mb-4 flex justify-center w-24 rounded-md"
+      *ngFor="let language of jobNonFeaturedCard?.languages" >{{language}}</li>
+    
+    </ul>
+  </div>
+</div>
