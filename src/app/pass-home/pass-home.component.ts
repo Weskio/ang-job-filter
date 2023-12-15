@@ -46,10 +46,13 @@ export class PassHomeComponent {
       });
       
   }
-
+ 
+  color: string ='';
 
   
   filteredRoles(text: string = '') {
+   this.color
+
     this.currentFilter = text;
     this.searchFilter = text.length > 0;
     this.filteredJobs = this.allJobs.filter(job => {
@@ -62,11 +65,13 @@ export class PassHomeComponent {
       );
   
       // Return true if either roleMatch or languageMatch is true
-      return roleMatch || languageMatch;
+      return roleMatch || languageMatch ;
     });
   }
   
-  
+  getFiltereRoles(){
+    return this.color
+  }
 
 
 }
