@@ -14,6 +14,8 @@ export class AllJobsComponent {
   @Input() allJob!:DataInterface
 
   @Input() role: string = '';
+  @Input() level: string=''
+  @Input() language: string ='';
   @Input() currentFilter: string = '';
 
   ngOnChanges(changes: SimpleChanges) {

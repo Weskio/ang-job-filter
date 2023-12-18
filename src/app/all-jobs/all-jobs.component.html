@@ -42,14 +42,24 @@
         <li 
         [ngClass]="{
           'bg-text-cyan text-emerald-800 shadow-xl ': role.toLowerCase() !== currentFilter.toLowerCase(),
-          'bg-white': role.toLowerCase() === currentFilter.toLowerCase()
+          'filter': role.toLowerCase() === currentFilter.toLowerCase()
         }"
         class="p-1 font-bold hover:text-white hover:bg-text-cyan cursor-pointer mb-4 w-20 rounded-md"
         >
         {{ allJob.role}}
         </li>
-      <li class="p-1 bg-filter-cyan font-bold hover:text-white hover:bg-text-cyan cursor-pointer text-text-cyan mb-4 flex justify-center w-20 rounded-md" > {{ allJob.level }}</li>
-      <li class="p-1 bg-filter-cyan font-bold hover:text-white hover:bg-text-cyan cursor-pointer text-text-cyan mb-4 flex justify-center w-24 rounded-md"
+      <li
+      [ngClass]="{
+        'bg-text-cyan text-emerald-800 shadow-xl ': level.toLowerCase() !== currentFilter.toLowerCase(),
+        'filter': level.toLowerCase() === currentFilter.toLowerCase()
+      }"
+      class="p-1 font-bold hover:text-white hover:bg-text-cyan cursor-pointer  mb-4 flex justify-center w-20 rounded-md" > {{ allJob.level }}</li>
+      <li 
+      [ngClass]="{
+        'bg-text-cyan text-emerald-800 shadow-xl ': language.toLowerCase() !== currentFilter.toLowerCase(),
+        'filter': language.toLowerCase() === currentFilter.toLowerCase()
+      }"
+      class="p-1  font-bold hover:text-white hover:bg-text-cyan cursor-pointer mb-4 flex justify-center w-24 rounded-md"
       *ngFor="let language of allJob?.languages" >{{language}}</li>
     
     </ul>

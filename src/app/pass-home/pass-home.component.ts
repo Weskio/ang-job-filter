@@ -47,13 +47,12 @@ export class PassHomeComponent {
       
   }
  
-  color: string ='';
-
+ searchColor :boolean =false;
   
   filteredRoles(text: string = '') {
-   this.color
+   this.searchColor = true
 
-    this.currentFilter = text;
+    this.currentFilter = '';
     this.searchFilter = text.length > 0;
     this.filteredJobs = this.allJobs.filter(job => {
       // Check if the role matches the text
@@ -63,16 +62,15 @@ export class PassHomeComponent {
       const languageMatch = job.languages?.some(language =>
         language.toLowerCase().includes(text.toLowerCase())
       );
+
+      //Check if any level matches the text
+      const levelMatch = job.level.toLowerCase().includes(text.toLowerCase());
+      
   
       // Return true if either roleMatch or languageMatch is true
-      return roleMatch || languageMatch ;
+      return roleMatch || languageMatch || levelMatch ;
     });
   }
-  
-  getFiltereRoles(){
-    return this.color
-  }
-
 
 }
 
